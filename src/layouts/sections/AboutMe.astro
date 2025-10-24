@@ -1,0 +1,104 @@
+---
+import ImageMod from "../components/ImageMod.astro";
+
+const features = [
+  {
+    id: 1,
+    text: "Модерна апаратура и доказани методи на лечение",
+    icon: "/images/paw.svg",
+  },
+  {
+    id: 2,
+    text: "Специализирана с инфекциозните болести",
+    icon: "/images/paw.svg",
+  },
+  {
+    id: 3,
+    text: "10+ години опит в клинична и полева практика",
+    icon: "/images/paw.svg",
+  },
+];
+
+const decorativePaws = [
+  { top: "1rem", right: "3rem", width: 40, height: 40, opacity: "0.15" },
+  { bottom: "2rem", left: "2rem", width: 35, height: 35, opacity: "0.1" },
+];
+---
+
+<section id="aboutme" class="relative z-10 overflow-hidden bg-white px-4">
+  <!-- Decorative -->
+  {
+    decorativePaws.map((paw) => (
+      <div
+        class="pointer-events-none absolute"
+        style={`top: ${paw.top || "auto"}; bottom: ${paw.bottom || "auto"}; left: ${paw.left || "auto"}; right: ${paw.right || "auto"}; opacity: ${paw.opacity};`}
+      >
+        <ImageMod
+          src="/images/paw.svg"
+          alt=""
+          width={paw.width}
+          height={paw.height}
+        />
+      </div>
+    ))
+  }
+
+  <div class="relative container mx-auto">
+    <div class="grid items-center gap-12 md:grid-cols-2">
+      <!-- Left -->
+      <div class="relative z-10">
+        <ImageMod
+          src="/images/aboutme.png"
+          alt="Ветеринарен лекар"
+          width={600}
+          height={800}
+          class="h-auto w-full"
+        />
+      </div>
+
+      <!-- Right -->
+      <div class="space-y-6">
+        <div>
+          <span class="header-badge">За мен</span>
+          <h2 class="mb-6 text-4xl font-bold text-gray-900">
+            Човекът зад престилката
+          </h2>
+          <p class="mb-8 text-lg leading-relaxed text-gray-600">
+            Над дeсет години практика и специализация в инфекциозни и паразитни
+            заболявания при кучета и котки. Работя с внимание, точна диагностика
+            и съвременни методи на лечение - защото здравето изисква прецизност.
+          </p>
+        </div>
+
+        <!-- Features -->
+        <div class="space-y-4">
+          {
+            features.map((feature) => (
+              <div class="flex items-center gap-4">
+                <div class="flex-shrink-0 -rotate-45 pt-1">
+                  <ImageMod
+                    src={feature.icon}
+                    alt=""
+                    width={32}
+                    height={32}
+                    class="text-blue-500"
+                  />
+                </div>
+                <p class="font-semibold text-gray-700">{feature.text}</p>
+              </div>
+            ))
+          }
+        </div>
+
+        <!-- CTA -->
+        <div class="pt-4">
+          <button
+            class="bg-primary hover:bg-primary/80 cursor-pointer rounded-lg px-8 py-3 font-medium text-white shadow-sm transition-colors"
+          >
+            Свържи Се
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

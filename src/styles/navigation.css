@@ -1,0 +1,87 @@
+.navbar {
+    @apply fixed top-0 md:top-12 max-w-full mx-0 left-0 mx-auto right-0 z-30 rounded-[0px];
+    @apply bg-white shadow-[0_4px_6px_-1px_rgb(0_0_0_/0.1)];
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: border-radius 300ms ease-in-out,
+        max-width 300ms ease-in-out;
+}
+
+
+.navbar.scrolled {
+    @apply rounded-full transition-all;
+    @apply container mx-auto top-4;
+
+}
+
+
+.navbar.scrolled .navbar-content {
+    @apply px-6;
+}
+
+.logo {
+    @apply text-xl font-bold text-gray-800 no-underline;
+    @apply transition-colors duration-200;
+}
+
+.logo:hover {
+    @apply text-blue-500;
+}
+
+.desktop-menu {
+    @apply hidden items-center space-x-8 font-medium md:flex
+}
+
+.desktop-menu a {
+    @apply text-gray-600 no-underline font-medium;
+    @apply transition-colors duration-200;
+}
+
+.desktop-menu a:hover {
+    @apply text-gray-800;
+}
+
+.mobile-toggle {
+    @apply flex md:hidden flex-col gap-1.5 bg-transparent border-0;
+    @apply cursor-pointer p-2 z-50;
+}
+
+.mobile-toggle span {
+    @apply w-6 h-0.5 bg-gray-800 rounded-sm;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.mobile-toggle.active span:nth-child(1) {
+    transform: translateY(0.5rem) rotate(45deg);
+}
+
+.mobile-toggle.active span:nth-child(2) {
+    @apply opacity-0;
+}
+
+.mobile-toggle.active span:nth-child(3) {
+    transform: translateY(-0.5rem) rotate(-45deg);
+}
+
+.mobile-menu {
+    @apply fixed left-0 right-0 bg-white;
+    @apply flex flex-col items-center p-4 gap-2 md:hidden;
+    @apply shadow-[0_10px_15px_-3px_rgb(0_0_0_/0.1)];
+    @apply opacity-0 pointer-events-none;
+    top: 6rem;
+    transform: translateY(-100%);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.mobile-menu.active {
+    @apply opacity-100 pointer-events-auto;
+    transform: translateY(0);
+}
+
+.mobile-menu a {
+    @apply text-gray-800 no-underline py-3 px-4 rounded-lg;
+    @apply font-medium transition-colors duration-200;
+}
+
+.mobile-menu a:hover {
+    @apply bg-gray-100;
+}

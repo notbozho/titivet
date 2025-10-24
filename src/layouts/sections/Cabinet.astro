@@ -1,0 +1,134 @@
+---
+import { readablePhoneNumber } from "@/lib/utils/textConverter";
+import ImageMod from "../components/ImageMod.astro";
+
+import config from "@/config/global";
+const { businessName, phone, workingHours, address } = config;
+---
+
+<section id="cabinet" class="bg-bodySecondary relative z-20 py-16">
+  <!-- Top Wave -->
+  <!-- <div
+    class="absolute -top-14 left-0 z-20 w-[calc(100vw-2rem)] overflow-hidden"
+  >
+    <svg
+      viewBox="0 0 1440 122"
+      fill="currentColor"
+      xmlns="http://www.w3.org/2000/svg"
+      preserveAspectRatio="none"
+      class="text-bodySecondary z-20 block w-full"
+    >
+      <path
+        d="M0 44.2351C687.428 -6.75098 1048.58 -22.2332 1440 44.2351H0Z"
+        fill="currentColor"
+        opacity="1"></path>
+    </svg>
+  </div> -->
+
+  <div class="container mx-auto">
+    <!-- Header -->
+    <div class="pb-24 text-center">
+      <span class="header-badge">Кабинетът</span>
+      <h2 class="font-semibold text-gray-900">
+        Къде се грижим за вашия любимец
+      </h2>
+    </div>
+
+    <div class="grid items-center gap-20 pb-20 md:grid-cols-2">
+      <!-- Left side -->
+      <div class="space-y-6">
+        <p class="text-xl leading-relaxed font-medium text-gray-700">
+          Нашият кабинет, основан през 2014 г., разполага с манипулационна зала
+          за общи хирургични интервенции, оборудвана с най-съвременна апаратура
+          за диагностика и лечение. Създадохме комфортна и безопасна среда,
+          готова да посрещне вашия любимец с грижа и професионализъм.
+        </p>
+        <p class="text-xl leading-relaxed font-medium text-gray-700">
+          С внимание, професионализъм и любов към животните осигуряваме пълен
+          спектър от услуги - диагностика, лечение и профилактика. Всеки
+          собственик получава лично консултиране и подробни препоръки за грижата
+          на своя домашен любимец. Работим с индивидуален подход към всеки
+          пациент, като отчитаме неговите специфични нужди и особености.
+        </p>
+      </div>
+
+      <!-- Right side -->
+      <div class="overflow-hidden rounded-lg shadow-lg">
+        <ImageMod
+          src="/images/cabinet.jpg"
+          alt="Ветеринарен кабинет"
+          width={600}
+          height={400}
+          class="h-full w-full object-cover"
+        />
+      </div>
+    </div>
+
+    <!-- Location and Map Section -->
+    <div class="relative h-[600px] w-full md:h-[700px]">
+      <div class="h-full w-full overflow-hidden rounded-lg shadow-lg">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d2906.013283977747!2d27.7718526!3d43.2511434!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40a5ab8dc08655d9%3A0xa5dd8909d33fe2bc!2sVeterinary%20hospital%20Titi%20Vet!5e0!3m2!1sen!2sbg!4v1761265204679!5m2!1sen!2sbg"
+          width="100%"
+          height="100%"
+          style="border:0;"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          class="h-full w-full"></iframe>
+      </div>
+
+      <div
+        class="pointer-events-none absolute top-1/2 left-8 z-10 max-w-sm -translate-y-1/2 transform md:left-12"
+      >
+        <div
+          class="pointer-events-auto space-y-6 rounded-lg bg-white p-6 text-center shadow-xl md:space-y-8 md:p-8"
+        >
+          <div>
+            <h3 class="mb-3 text-xl font-semibold text-gray-900 md:text-2xl">
+              Къде да ни намерите
+            </h3>
+            <div class="space-y-1 text-sm text-gray-700 md:text-base">
+              <p>Ветеринарен кабинет</p>
+              <p>{businessName}</p>
+              <a
+                href="https://maps.app.goo.gl/ybu8Fj56mkxqKVaj7"
+                class="text-primary hover:text-secondary"
+              >
+                <p>{address.split(",")[1]}</p>
+                <p>{address.split(",")[0]}</p>
+              </a>
+            </div>
+          </div>
+
+          <div>
+            <h3 class="mb-3 text-xl font-semibold text-gray-900 md:text-2xl">
+              Работно Време
+            </h3>
+            <div class="space-y-1 text-sm text-gray-700 md:text-base">
+              <p>Понеделник - Петък: 09:00 - 17:00</p>
+              <p>Събота: 09:00 - 13:00</p>
+              <p>Неделя: ПОЧИВЕН</p>
+            </div>
+          </div>
+
+          <div id="contact">
+            <h3 class="mb-3 text-xl font-semibold text-gray-900 md:text-2xl">
+              Контакт:
+            </h3>
+            <div class="text-sm text-gray-700 md:text-base">
+              <p>
+                Телефон: <a
+                  href={`tel:${phone}`}
+                  class="text-primary hover:text-secondary"
+                  >{readablePhoneNumber(phone)}</a
+                >
+              </p>
+              <p>д-р Станислава Андреева</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

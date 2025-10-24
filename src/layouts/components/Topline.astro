@@ -1,0 +1,25 @@
+---
+import { FaPhoneAlt } from "react-icons/fa";
+import { FaLocationDot } from "react-icons/fa6";
+
+import config from "@/config/global";
+import { readablePhoneNumber } from "@/lib/utils/textConverter";
+
+const { phone, address } = config;
+---
+
+<div
+  class="bg-primary hidden w-full items-center justify-between px-16 py-3 text-white md:flex"
+>
+  <a
+    href={`tel:${phone}`}
+    class="flex items-center space-x-2 transition hover:opacity-80"
+  >
+    <FaPhoneAlt />
+    <span>{readablePhoneNumber(phone)}</span>
+  </a>
+  <a href="#" class="flex items-center space-x-2 transition hover:opacity-80">
+    <FaLocationDot size={20} />
+    <span>{address}</span>
+  </a>
+</div>

@@ -1,0 +1,40 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import ImageMod from "@/layouts/components/ImageMod.astro";
+import AboutMe from "@/layouts/sections/AboutMe.astro";
+import Cabinet from "@/layouts/sections/Cabinet.astro";
+import Services from "@/layouts/sections/Services.astro";
+---
+
+<BaseLayout>
+  <div class="mt-18"></div>
+  <section class="section">
+    <div
+      class="container mx-auto grid grid-cols-1 items-center gap-8 text-center md:grid-cols-2 md:text-start"
+    >
+      <div class="order-2 flex flex-col gap-y-8 md:order-1">
+        <h1 class="text-4xl leading-tight font-bold md:text-5xl">
+          Ветеринарен Кабинет <br />
+          <span class="text-primary">д-р Станислава Андреева</span>
+        </h1>
+        <p class="text-lg">
+          Професионална грижа и лично отношение към всеки домашен любимец. От
+          2014 г. помагаме на животните да живеят по-здрави и щастливи животи
+          чрез модерна диагностика, сигурно лечение и истинска отдаденост.
+        </p>
+      </div>
+      <div class="order-1 h-full w-full md:order-2">
+        <ImageMod
+          src="/images/hero.png"
+          alt="Hero Image"
+          width={600}
+          height={400}
+          class="h-full w-full rounded-lg object-cover"
+        />
+      </div>
+    </div>
+  </section>
+  <Services />
+  <AboutMe />
+  <Cabinet />
+</BaseLayout>

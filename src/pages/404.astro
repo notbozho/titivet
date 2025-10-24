@@ -1,0 +1,129 @@
+---
+// 404 Error Page
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import ImageMod from "@/layouts/components/ImageMod.astro";
+import { readablePhoneNumber } from "@/lib/utils/textConverter";
+
+import config from "@/config/global";
+---
+
+<BaseLayout title="Страницата не е намерена - 404">
+  <section
+    class="relative flex min-h-screen items-center justify-center overflow-hidden bg-gradient-to-b from-blue-50 to-white px-4 py-16"
+  >
+    <!-- Decorative paw prints -->
+    <div class="absolute top-12 left-12 opacity-10">
+      <ImageMod src="/images/paw.svg" alt="" width={60} height={60} />
+    </div>
+    <div class="absolute top-32 right-16 opacity-10">
+      <ImageMod src="/images/paw.svg" alt="" width={80} height={80} />
+    </div>
+    <div class="absolute bottom-24 left-24 opacity-10">
+      <ImageMod src="/images/paw.svg" alt="" width={70} height={70} />
+    </div>
+    <div class="absolute right-12 bottom-12 opacity-10">
+      <ImageMod src="/images/paw.svg" alt="" width={50} height={50} />
+    </div>
+
+    <div class="relative z-10 mx-auto max-w-4xl text-center">
+      <!-- 404 Number -->
+      <div class="mb-8">
+        <h1
+          class="text-9xl leading-none font-bold text-gray-200 select-none md:text-[12rem]"
+        >
+          404
+        </h1>
+        <div
+          class="absolute top-1/2 left-1/2 h-48 w-48 -translate-x-1/2 -translate-y-1/2 transform md:h-64 md:w-64"
+        >
+          <ImageMod
+            src="/images/paw.svg"
+            alt="Lost paw"
+            width={256}
+            height={256}
+            class="h-full w-full opacity-20"
+          />
+        </div>
+      </div>
+
+      <!-- Error Message -->
+      <div class="mb-12 space-y-6">
+        <h2 class="text-3xl font-bold text-gray-900 md:text-4xl">
+          Опа! Страницата се изгуби
+        </h2>
+        <p class="mx-auto max-w-2xl text-lg text-gray-600">
+          Изглежда, че търсената страница не съществува или е била преместена.
+          Нашите малки приятели обаче са тук, за да ви отведат обратно към
+          началото!
+        </p>
+      </div>
+
+      <!-- CTA Buttons -->
+      <div class="flex flex-col items-center justify-center gap-4 sm:flex-row">
+        <a
+          href="/"
+          class="bg-primary hover:bg-secondary z-20 inline-flex items-center gap-2 rounded-full px-8 py-3 font-medium text-white shadow-sm transition-colors"
+        >
+          <svg
+            class="h-5 w-5"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
+            ></path>
+          </svg>
+          Начална Страница
+        </a>
+        <a
+          href="/#services"
+          class="z-20 inline-flex items-center gap-2 rounded-full border border-gray-200 bg-white px-8 py-3 font-medium text-gray-700 shadow-sm transition-colors hover:bg-gray-50"
+        >
+          <svg
+            class="h-5 w-5"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
+            ></path>
+          </svg>
+          Нашите Услуги
+        </a>
+      </div>
+
+      <!-- Additional Help -->
+      <div class="mt-16 border-t border-gray-200 pt-8">
+        <p class="mb-4 text-gray-600">Нуждаете се от помощ?</p>
+        <div class="flex flex-wrap justify-center gap-6 text-sm">
+          <a
+            href="/#about"
+            class="hover:text-secondary text-primary transition-colors"
+          >
+            За Нас
+          </a>
+          <a
+            href="/#cabinet"
+            class="hover:text-secondary text-primary transition-colors"
+          >
+            Контакти
+          </a>
+          <a
+            href={`tel:${config.phone}`}
+            class="text-primary hover:text-secondary transition-colors"
+          >
+            Обадете се: {readablePhoneNumber(config.phone)}
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

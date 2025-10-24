@@ -1,0 +1,114 @@
+---
+import { FaPhoneAlt } from "react-icons/fa";
+import { FaLocationDot } from "react-icons/fa6";
+import Logo from "./Logo.astro";
+import config from "@/config/global";
+import Topline from "./Topline.astro";
+
+const { navigation, navigation_button } = config;
+const { pathname } = Astro.url;
+---
+
+<header class="relative z-30">
+  <Topline />
+  <nav id="navbar" class="navbar">
+    <div
+      class="container mx-auto flex items-center justify-between px-8 py-4 md:px-12"
+    >
+      <!-- LOGO -->
+      <Logo showName={true} />
+
+      <!-- DESKTOP NAV -->
+      <ul class="desktop-menu">
+        {
+          navigation.map((item) => (
+            <li>
+              <a
+                href={item.href}
+                class={`hover:text-primary transition ${
+                  pathname === item.href || pathname === `${item.href}/`
+                    ? "text-primary"
+                    : "text-gray-800"
+                }`}
+              >
+                {item.name}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+
+      <!-- CTA -->
+      {
+        navigation_button.enabled && (
+          <a
+            href={navigation_button.href}
+            class="bg-primary hover:bg-opacity-90 hidden rounded-full px-5 py-2 font-semibold text-white shadow transition lg:inline-block"
+          >
+            {navigation_button.name}
+          </a>
+        )
+      }
+
+      <button id="mobile-toggle" class="mobile-toggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="mobile-menu" class="mobile-menu">
+      {
+        navigation.map((item) => (
+          <a
+            href={item.href}
+            class={`block rounded-lg px-4 py-2 text-center hover:bg-gray-100 ${
+              pathname === item.href || pathname === `${item.href}/`
+                ? "text-primary"
+                : "text-gray-800"
+            }`}
+          >
+            {item.name}
+          </a>
+        ))
+      }
+    </div>
+  </nav>
+</header>
+
+<script>
+  function initNavbar() {
+    const navbar = document.getElementById("navbar");
+    const mobileToggle = document.getElementById("mobile-toggle");
+    const mobileMenu = document.getElementById("mobile-menu");
+
+    const toplineHeight =
+      (document.querySelector(".topline") as HTMLElement)?.offsetHeight || 0;
+
+    window.addEventListener("scroll", () => {
+      const currentScroll = window.pageYOffset;
+      if (currentScroll > toplineHeight + 50 && window.innerWidth >= 640) {
+        navbar?.classList.add("scrolled");
+      } else {
+        navbar?.classList.remove("scrolled");
+      }
+    });
+
+    mobileToggle?.addEventListener("click", () => {
+      mobileMenu?.classList.toggle("active");
+      mobileToggle?.classList.toggle("active");
+    });
+
+    mobileMenu?.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => {
+        mobileMenu?.classList.remove("active");
+        mobileToggle?.classList.remove("active");
+      });
+    });
+  }
+
+  initNavbar();
+
+  document.addEventListener("astro:page-load", () => {
+    initNavbar();
+  });
+</script>

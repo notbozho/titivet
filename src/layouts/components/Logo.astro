@@ -1,0 +1,34 @@
+---
+import config from "@/config/global";
+import ImageMod from "./ImageMod.astro";
+
+const { logo, businessName } = config;
+const { props } = Astro;
+
+const sizes = {
+  sm: 32,
+  md: 64,
+  lg: 128,
+};
+---
+
+{
+  logo.enabled ? (
+    <a href="/" class="flex items-center">
+      <ImageMod
+        src={logo.primary}
+        alt={businessName + " Logo"}
+        class="h-12 w-auto lg:h-16"
+        width={64}
+        height={64}
+      />
+      {props.showName ? (
+        <span class="ml-4 text-xl font-bold">{businessName}</span>
+      ) : null}
+    </a>
+  ) : (
+    <a href="/" class="text-xl font-bold">
+      {businessName}
+    </a>
+  )
+}

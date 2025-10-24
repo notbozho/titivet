@@ -1,0 +1,146 @@
+---
+import ImageMod from "../components/ImageMod.astro";
+
+const services = [
+  {
+    id: 1,
+    title: "Преглед и лечение",
+    description:
+      "Пълен клиничен преглед и индивидуална подход при диагностика и лечение на заболяванията на вашия любимец",
+    buttonText: "Научи Повече",
+    icon: "icon_1.png",
+  },
+  {
+    id: 2,
+    title: "Ваксинация",
+    description:
+      "Изградване надеждна защита чрез правилно подбрани ваксинационен план според възрастта и нуждите на животното.",
+    buttonText: "Научи Повече",
+    icon: "icon_2.png",
+  },
+  {
+    id: 3,
+    title: "Обезпаразитяване",
+    description:
+      "Ефективна вътрешна и външна профилактика срещу паразити за здраво и спокойно ежедневие на вашия любимец.",
+    buttonText: "Резервирай час",
+    icon: "icon_3.png",
+  },
+  {
+    id: 4,
+    title: "Микрочипиране",
+    description:
+      "Сигурна идентификация чрез поставяне на микрочип - за защита, проследяване и гаранция за съблюдаването.",
+    buttonText: "Научи Повече",
+    icon: "icon_4.png",
+  },
+  {
+    id: 5,
+    title: "Домашни Посещения",
+    description:
+      "Професионални прегледи и лечение на вашия любимец в дома на дома, за по-малко стрес и повече удобство.",
+    buttonText: "Обади се",
+    icon: "icon_5.png",
+  },
+];
+
+const pawPositions = [
+  { top: "1rem", left: "2rem", size: "2rem", opacity: "0.15" },
+  { top: "5rem", left: "4rem", size: "1.5rem", opacity: "0.1" },
+  { top: "3rem", right: "3rem", size: "2.5rem", opacity: "0.15" },
+  { bottom: "8rem", left: "6rem", size: "2rem", opacity: "0.1" },
+  { bottom: "4rem", right: "5rem", size: "1.5rem", opacity: "0.12" },
+  { top: "50%", right: "2rem", size: "2rem", opacity: "0.1" },
+];
+---
+
+<section
+  id="services"
+  class="bg-bodySecondary relative min-h-screen overflow-hidden"
+>
+  <!-- Top Wave -->
+  <div class="absolute top-0 left-0 w-full">
+    <svg
+      viewBox="0 0 1440 120"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      class="w-full"
+    >
+      <path
+        d="M0,64 C360,20 720,20 1080,64 C1260,86 1350,96 1440,96 L1440,0 L0,0 Z"
+        fill="#ffffff"
+        opacity="1"></path>
+    </svg>
+  </div>
+
+  <!-- Decorative -->
+  {
+    pawPositions.map((paw) => (
+      <div
+        class="absolute"
+        style={`top: ${paw.top || "auto"}; bottom: ${paw.bottom || "auto"}; left: ${paw.left || "auto"}; right: ${paw.right || "auto"}; width: ${paw.size}; height: ${paw.size}; opacity: ${paw.opacity};`}
+      >
+        <img src="/images/paw.svg" alt="" class="h-full w-full" />
+      </div>
+    ))
+  }
+
+  <div
+    class="relative z-10 container mx-auto px-8 pt-8 pb-32 md:pt-24 md:pb-52"
+  >
+    <!-- Header -->
+    <div class="mb-12 text-center">
+      <div class="mb-4 inline-block">
+        <img
+          src="/images/paw.svg"
+          alt="Paw logo"
+          class="mx-auto h-16 w-16 opacity-20"
+        />
+      </div>
+      <p class="header-badge">Услуги</p>
+      <h2 class="font-bold text-gray-800">Пълна грижа за вашия любимец</h2>
+    </div>
+
+    <!-- Services List -->
+    <div class="space-y-6">
+      {
+        services.map((service) => (
+          <div class="relative flex flex-col items-center gap-4 rounded-2xl bg-white p-6 text-center shadow-sm md:flex-row md:p-8 md:text-start">
+            <div class="flex-shrink-0">
+              <ImageMod
+                src={`/images/services/${service.icon}`}
+                alt={service.title}
+                class="h-32 w-32"
+                width={160}
+                height={160}
+              />
+            </div>
+            <div class="relative h-full flex-grow space-y-2 md:max-w-[60%]">
+              <h3 class="text-primary font-semibold">{service.title}</h3>
+              <p class="text-gray-600">{service.description}</p>
+            </div>
+            <button class="bg-secondary hover:bg-primary bottom-0 mx-auto mt-2 cursor-pointer rounded-lg px-6 py-2 text-white transition-colors md:absolute md:right-8 md:bottom-8 md:mt-0">
+              {service.buttonText}
+            </button>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+
+  <!-- Bottom Wave -->
+  <div class="absolute bottom-0 left-0 w-full">
+    <svg
+      viewBox="0 0 1440 120"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      class="w-full"
+      preserveAspectRatio="none"
+    >
+      <path
+        d="M0,56 C360,12 720,12 1080,56 C1260,78 1350,88 1440,88 L1440,120 L0,120 Z"
+        fill="#ffffff"
+        opacity="1"></path>
+    </svg>
+  </div>
+</section>

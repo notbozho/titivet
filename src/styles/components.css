@@ -1,0 +1,16 @@
+.section {
+  @apply py-24 xl:py-28;
+}
+
+.section-sm {
+  @apply py-16 xl:py-20;
+}
+
+/* container */
+.container {
+  @apply mx-auto px-8 md:px-4;
+}
+
+.header-badge {
+  @apply pb-4 font-secondary text-2xl text-primary;
+}
