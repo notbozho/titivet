@@ -3,7 +3,7 @@ html {
 }
 
 body {
-  @apply bg-body font-primary text-text text-base leading-relaxed font-normal;
+  @apply bg-body font-primary text-text text-base leading-relaxed font-normal overflow-x-hidden;
 }
 
 h1,

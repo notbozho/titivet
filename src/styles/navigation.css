@@ -67,7 +67,7 @@
     @apply flex flex-col items-center p-4 gap-2 md:hidden;
     @apply shadow-[0_10px_15px_-3px_rgb(0_0_0_/0.1)];
     @apply opacity-0 pointer-events-none;
-    top: 6rem;
+    /* top: 100%; */
     transform: translateY(-100%);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }

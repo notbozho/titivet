@@ -96,6 +96,7 @@ const { pathname } = Astro.url;
     mobileToggle?.addEventListener("click", () => {
       mobileMenu?.classList.toggle("active");
       mobileToggle?.classList.toggle("active");
+      console.log(mobileMenu?.classList);
     });
 
     mobileMenu?.querySelectorAll("a").forEach((link) => {
@@ -105,8 +106,6 @@ const { pathname } = Astro.url;
       });
     });
   }
-
-  initNavbar();
 
   document.addEventListener("astro:page-load", () => {
     initNavbar();
