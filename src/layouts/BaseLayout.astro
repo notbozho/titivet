@@ -8,8 +8,7 @@ import {
   GoogleTagmanager,
   GoogleTagmanagerNoscript,
 } from "@digi4care/astro-google-tagmanager";
-import { AstroFont } from "astro-font";
-import { ClientRouter, ViewTransitions } from "astro:transitions";
+import { ClientRouter } from "astro:transitions";
 import TwSizeIndicator from "./components/TwSizeIndicator.astro";
 import "@fontsource/montserrat-alternates/300.css";
 import "@fontsource/montserrat-alternates/400.css";
@@ -36,7 +35,6 @@ const { title, meta_title, description, image, noindex, canonical } =
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <ViewTransitions />
     <!-- google tag manager -->
     <GoogleTagmanager id={config.googleTagManagerId} />
     <!-- favicon -->
