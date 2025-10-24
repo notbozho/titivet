@@ -1,43 +1,39 @@
-# Astro Starter Kit: Minimal
+# Titivet Veterinary Clinic Landing Page
 
-```sh
-npm create astro@latest -- --template minimal
+Modern, high-performance & responsive landing page for a veterinary clinic built with Astro.js.
+
+## Features
+
+- Perfect Lighthouse Scores - 99+/100 in Performance, Accessibility, SEO, and Best Practices
+- Mobile-First Design - Fully responsive across all devices
+- WCAG Compliant - AA accessibility standards
+- Optimized Images - AVIF format with lazy loading and responsive srcsets
+
+## Tech Stack
+
+- **Design:** Figma - [Design File](https://www.figma.com/design/SMZUOHHOlZpFeNLMbWqcwx/Titivet?m=auto&t=zn6yqcG8271Fe9jO-1)
+- **Framework:** Astro.js
+- **Styling:** Tailwind CSS
+- **Images:** Astro Image Optimization
+- **Fonts:** Local font hosting (no external requests)
+- **Icons:** React Icons
+
+## Preview
+
+Website can be previewed [here](https://titivet.netlify.app/).
+
+Benchmarks can be viewed on [GTMetrix](https://gtmetrix.com/reports/titivet.netlify.app/u6UTccm4/).
+
+## Setup Instructions
+
+```bash
+npm install
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+```bash
+npm run build
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
-
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+```bash
+npm run preview
+```
