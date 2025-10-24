@@ -70,9 +70,9 @@ const config = {
   colors: {
     default: {
       primary: "#5474AA",
-      secondary: "#7BA2E4",
-      body: "##f5f5f5",
-      bodySecondary: "#E2EDFF",
+      secondary: "#6091E3",
+      body: "#ffffff",
+      bodySecondary: "#F4F8FF",
       border: "#eaeaea",
       light: "#f5f5f5",
       dark: "#040404",

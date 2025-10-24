@@ -9,7 +9,10 @@ interface Props {
   height: number;
   loading?: "eager" | "lazy" | null | undefined;
   decoding?: "async" | "auto" | "sync" | null | undefined;
+  fetchpriority?: "high" | "low" | "auto" | null | undefined;
   format?: "auto" | "avif" | "jpeg" | "png" | "svg" | "webp";
+  widths?: number[];
+  sizes?: string;
   class?: string;
   style?: any;
 }
@@ -21,7 +24,10 @@ let {
   height,
   loading,
   decoding,
+  fetchpriority,
   class: className,
+  widths,
+  sizes,
   format,
   style,
 } = Astro.props;
@@ -47,6 +53,9 @@ const isValidPath = images[src] ? true : false;
       height={height}
       loading={loading}
       decoding={decoding}
+      fetchpriority={fetchpriority}
+      widths={widths}
+      sizes={sizes}
       class={className}
       format={format}
       style={style}

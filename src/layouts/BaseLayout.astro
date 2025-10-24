@@ -11,23 +11,11 @@ import {
 import { AstroFont } from "astro-font";
 import { ClientRouter, ViewTransitions } from "astro:transitions";
 import TwSizeIndicator from "./components/TwSizeIndicator.astro";
-import Topline from "./components/Topline.astro";
-
-// font families
-const pf = config.fonts.font_family.primary;
-const sf = config.fonts.font_family.secondary;
-
-let fontPrimary, fontSecondary;
-if (config.fonts.font_family.primary) {
-  fontPrimary = config.fonts.font_family.primary
-    .replace(/\+/g, " ")
-    .replace(/:[ital,]*[ital@]*[wght@]*[0-9,;.]+/gi, "");
-}
-if (config.fonts.font_family.secondary) {
-  fontSecondary = config.fonts.font_family.secondary
-    .replace(/\+/g, " ")
-    .replace(/:[ital,]*[ital@]*[wght@]*[0-9,;.]+/gi, "");
-}
+import "@fontsource/montserrat-alternates/300.css";
+import "@fontsource/montserrat-alternates/400.css";
+import "@fontsource/montserrat-alternates/500.css";
+import "@fontsource/montserrat-alternates/600.css";
+import "@fontsource/pacifico";
 
 // types for frontmatters
 export interface Props {
@@ -47,6 +35,7 @@ const { title, meta_title, description, image, noindex, canonical } =
 <!doctype html>
 <html lang="en">
   <head>
+    <meta charset="UTF-8" />
     <ViewTransitions />
     <!-- google tag manager -->
     <GoogleTagmanager id={config.googleTagManagerId} />
@@ -54,42 +43,7 @@ const { title, meta_title, description, image, noindex, canonical } =
     <link rel="shortcut icon" href={config.logo.primary} />
     <!-- theme meta -->
     <meta name="msapplication-TileColor" content="#000000" />
-    <meta
-      name="theme-color"
-      media="(prefers-color-scheme: light)"
-      content="#fff"
-    />
-    <meta
-      name="theme-color"
-      media="(prefers-color-scheme: dark)"
-      content="#000"
-    />
     <meta name="generator" content={Astro.generator} />
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-
-    <!-- google font css -->
-    <AstroFont
-      config={[
-        {
-          src: [],
-          preload: false,
-          display: "swap",
-          name: fontPrimary!,
-          fallback: "sans-serif",
-          cssVariable: "font-primary",
-          googleFontsURL: `https://fonts.googleapis.com/css2?family=${pf}&display=swap`,
-        },
-        {
-          src: [],
-          preload: false,
-          display: "swap",
-          name: fontSecondary!,
-          fallback: "sans-serif",
-          cssVariable: "font-secondary",
-          googleFontsURL: `https://fonts.googleapis.com/css2?family=${sf}&display=swap`,
-        },
-      ]}
-    />
 
     <!-- responsive meta -->
     <meta

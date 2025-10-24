@@ -11,3 +11,8 @@
   @import "./components.css";
   @import "./navigation.css";
 }
+
+@theme {
+  --font-primary: 'Montserrat Alternates', sans-serif;
+  --font-secondary: 'Pacifico', cursive;
+}
